@@ -9,3 +9,16 @@
 
 (setq magit-auto-revert-mode nil)
 (setq magit-last-seen-setup-instructions "1.4.0")
+
+(prelude-require-packages '(smex golden-ratio))
+
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+
+(global-set-key (kbd "s-h")  'windmove-left)
+(global-set-key (kbd "s-l")  'windmove-right)
+(global-set-key (kbd "s-k")  'windmove-up)
+(global-set-key (kbd "s-j")  'windmove-down)
+
+(golden-ratio-mode t)
+
