@@ -15,10 +15,11 @@
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 
-(global-set-key (kbd "s-h")  'windmove-left)
-(global-set-key (kbd "s-l")  'windmove-right)
-(global-set-key (kbd "s-k")  'windmove-up)
-(global-set-key (kbd "s-j")  'windmove-down)
+(global-set-key (kbd "C-s-h")  'windmove-left)
+(global-set-key (kbd "C-s-l")  'windmove-right)
+(global-set-key (kbd "C-s-k")  'windmove-up)
+(global-set-key (kbd "C-s-j")  'windmove-down)
 
 (golden-ratio-mode t)
-
+(define-coding-system-alias 'UTF-8 'utf-8)
+(define-coding-system-alias 'utf8 'utf-8)
