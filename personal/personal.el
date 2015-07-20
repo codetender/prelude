@@ -10,15 +10,24 @@
 (setq magit-auto-revert-mode nil)
 (setq magit-last-seen-setup-instructions "1.4.0")
 
-(prelude-require-packages '(smex golden-ratio))
+(prelude-require-packages '(smex))
 
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 
-(global-set-key (kbd "s-h")  'windmove-left)
-(global-set-key (kbd "s-l")  'windmove-right)
-(global-set-key (kbd "s-k")  'windmove-up)
-(global-set-key (kbd "s-j")  'windmove-down)
+(global-set-key (kbd "C-s-h")  'windmove-left)
+(global-set-key (kbd "C-s-l")  'windmove-right)
+(global-set-key (kbd "C-s-k")  'windmove-up)
+(global-set-key (kbd "C-s-j")  'windmove-down)
 
-(golden-ratio-mode t)
+(define-coding-system-alias 'UTF-8 'utf-8)
+(define-coding-system-alias 'utf8 'utf-8)
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+(require 'multiple-cursors)
+(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+
+(server-start)
