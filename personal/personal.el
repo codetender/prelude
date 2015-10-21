@@ -1,4 +1,8 @@
 (load-theme 'solarized-dark t)
+
+(setq url-proxy-services '(("http" . "127.0.0.1:13333")
+                           ("https" . "127.0.0.1:13333")))
+
 (defadvice ansi-term (after advise-ansi-term-coding-system)
   (set-buffer-process-coding-system 'utf-8-unix 'utf-8-unix))
 (ad-activate 'ansi-term)
@@ -27,6 +31,7 @@
 (require 'multiple-cursors)
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-S-k") 'mc/skip-to-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
