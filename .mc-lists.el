@@ -4,10 +4,15 @@
 (setq mc/cmds-to-run-for-all
       '(
         easy-kill
+        electric-newline-and-maybe-indent
+        indent-for-tab-command
         prelude-move-beginning-of-line
+        yaml-electric-backspace
         ))
 
 (setq mc/cmds-to-run-once
       '(
+        next-error
+        previous-error
         undo-tree-visualize
         ))
