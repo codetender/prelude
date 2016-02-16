@@ -5,7 +5,12 @@
       '(
         easy-kill
         electric-newline-and-maybe-indent
+        erlang-electric-comma
         indent-for-tab-command
+        markdown-cycle
+        org-beginning-of-line
+        org-delete-char
+        org-self-insert-command
         prelude-move-beginning-of-line
         yaml-electric-backspace
         ))
