@@ -14,7 +14,7 @@
 (setq magit-auto-revert-mode nil)
 (setq magit-last-seen-setup-instructions "1.4.0")
 
-(prelude-require-packages '(smex multiple-cursors))
+(prelude-require-packages '(smex multiple-cursors flx-ido))
 
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
@@ -44,3 +44,11 @@
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
 (server-start)
+
+(require 'flx-ido)
+(ido-mode 1)
+(ido-everywhere 1)
+(flx-ido-mode 1)
+;; disable ido faces to see flx highlights.
+(setq ido-enable-flex-matching t)
+(setq ido-use-faces nil)
