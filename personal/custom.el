@@ -10,6 +10,8 @@
  '(org-indent-indentation-per-level 4)
  '(org-n-level-faces 2)
  '(org-src-fontify-natively t)
+ '(projectile-global-mode t)
+ '(projectile-use-git-grep t)
  '(python-shell-exec-path nil)
  '(python-shell-process-environment nil)
  '(scroll-bar-mode nil)

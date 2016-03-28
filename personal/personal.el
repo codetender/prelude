@@ -14,7 +14,7 @@
 (setq magit-auto-revert-mode nil)
 (setq magit-last-seen-setup-instructions "1.4.0")
 
-(prelude-require-packages '(smex multiple-cursors flx-ido))
+(prelude-require-packages '(smex multiple-cursors flx-ido iy-go-to-char))
 
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
@@ -52,3 +52,10 @@
 ;; disable ido faces to see flx highlights.
 (setq ido-enable-flex-matching t)
 (setq ido-use-faces nil)
+
+(require 'iy-go-to-char)
+(add-to-list 'mc/cursor-specific-vars 'iy-go-to-char-start-pos)
+(global-set-key (kbd "s-f") 'iy-go-to-char)
+(global-set-key (kbd "s-F") 'iy-go-to-char-backward)
+(global-set-key (kbd "s-;") 'iy-go-to-or-up-to-continue)
+(global-set-key (kbd "s-,") 'iy-go-to-or-up-to-continue-backward)
