@@ -14,7 +14,7 @@
 (setq magit-auto-revert-mode nil)
 (setq magit-last-seen-setup-instructions "1.4.0")
 
-(prelude-require-packages '(smex multiple-cursors flx-ido iy-go-to-char))
+(prelude-require-packages '(smex multiple-cursors flx-ido iy-go-to-char yasnippet))
 
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
@@ -37,10 +37,10 @@
 (add-hook 'org-mode-hook 'hook-org-mode)
 
 (require 'multiple-cursors)
-(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
-(global-set-key (kbd "C->") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-S-k") 'mc/skip-to-next-like-this)
-(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "s-e") 'mc/edit-lines)
+(global-set-key (kbd "s-d") 'mc/mark-next-like-this)
+(global-set-key (kbd "s-n") 'mc/skip-to-next-like-this)
+(global-set-key (kbd "s-S-d") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
 (server-start)
@@ -59,3 +59,11 @@
 (global-set-key (kbd "s-F") 'iy-go-to-char-backward)
 (global-set-key (kbd "s-;") 'iy-go-to-or-up-to-continue)
 (global-set-key (kbd "s-,") 'iy-go-to-or-up-to-continue-backward)
+
+
+(setq yas-snippet-dirs
+      '("~/.emacs.d/yasnippet-snippets"                 ;; personal snippets
+        "~/.emacs.d/personal/snippets"
+        ))
+
+(yas-global-mode 1)
