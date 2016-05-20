@@ -14,7 +14,7 @@
 (setq magit-auto-revert-mode nil)
 (setq magit-last-seen-setup-instructions "1.4.0")
 
-(prelude-require-packages '(smex multiple-cursors flx-ido iy-go-to-char yasnippet))
+(prelude-require-packages '(smex multiple-cursors flx-ido iy-go-to-char yasnippet elixir-mode alchemist))
 
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
@@ -32,11 +32,16 @@
   (interactive)
   (variable-pitch-mode t))
 
+(defun hook-elixir-mode ()
+  (alchemist-mode))
+
 (setq prelude-clean-whitespace-on-save nil)
 
 (add-hook 'org-mode-hook 'hook-org-mode)
+(add-hook 'elixir-mode-hook 'hook-elixir-mode)
 
 (require 'multiple-cursors)
+(global-company-mode)
 (global-set-key (kbd "s-e") 'mc/edit-lines)
 (global-set-key (kbd "s-d") 'mc/mark-next-like-this)
 (global-set-key (kbd "s-n") 'mc/skip-to-next-like-this)
@@ -67,3 +72,18 @@
         ))
 
 (yas-global-mode 1)
+
+(require 'projectile)
+
+(defun jump-to-file-and-line ()
+  (interactive)
+  (let ((line (buffer-substring-no-properties (point-at-bol) (point-at-eol))))
+    (let ((tuple (string-match "\\([a-zA-Z/._]+\\):\\([0-9]+\\)" line)))
+      (let ((file (match-string 1 line))
+            (lnum (match-string 2 line))
+            (dir)
+        (when (and file (file-exists-p (concat (projectile-project-root) file)))
+          (find-file-other-window (concat default-directory file))
+          (and lnum (goto-line (string-to-number lnum))))))))
+
+(global-set-key (kbd "s-]") 'jump-to-file-and-line)
