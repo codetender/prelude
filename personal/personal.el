@@ -81,9 +81,9 @@
     (let ((tuple (string-match "\\([a-zA-Z/._]+\\):\\([0-9]+\\)" line)))
       (let ((file (match-string 1 line))
             (lnum (match-string 2 line))
-            (dir)
-        (when (and file (file-exists-p (concat (projectile-project-root) file)))
-          (find-file-other-window (concat default-directory file))
+            (dir (projectile-project-root)))
+        (when (and file (file-exists-p (concat dir file)))
+          (find-file-other-window (concat dir file))
           (and lnum (goto-line (string-to-number lnum))))))))
 
 (global-set-key (kbd "s-]") 'jump-to-file-and-line)
