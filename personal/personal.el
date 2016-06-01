@@ -87,3 +87,5 @@
           (and lnum (goto-line (string-to-number lnum))))))))
 
 (global-set-key (kbd "s-]") 'jump-to-file-and-line)
+
+(add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
