@@ -10,7 +10,7 @@
  '(org-level-color-stars-only t)
  '(package-selected-packages
    (quote
-    (markdown-mode+ markdown-mode sml-mode rust-mode yaml-mode zop-to-char zenburn-theme yasnippet volatile-highlights vkill undo-tree tuareg solarized-theme smex smartrep smartparens rainbow-mode rainbow-delimiters ov operate-on-number multiple-cursors move-text magit json-mode js2-mode iy-go-to-char ido-ubiquitous helm-projectile guru-mode grizzl golden-ratio god-mode gitignore-mode gitconfig-mode git-timemachine git-rebase-mode git-commit-mode gist geiser flycheck flx-ido expand-region exec-path-from-shell erlang elisp-slime-nav easy-kill discover-my-major diminish diff-hl color-theme-solarized browse-kill-ring anzu alchemist ace-window)))
+    (cargo markdown-mode+ markdown-mode sml-mode rust-mode yaml-mode zop-to-char zenburn-theme yasnippet volatile-highlights vkill undo-tree tuareg solarized-theme smex smartrep smartparens rainbow-mode rainbow-delimiters ov operate-on-number multiple-cursors move-text magit json-mode js2-mode iy-go-to-char ido-ubiquitous helm-projectile guru-mode grizzl golden-ratio god-mode gitignore-mode gitconfig-mode git-timemachine gist geiser flycheck flx-ido expand-region exec-path-from-shell erlang elisp-slime-nav easy-kill discover-my-major diminish diff-hl color-theme-solarized browse-kill-ring anzu alchemist ace-window)))
  '(projectile-global-mode t)
  '(projectile-use-git-grep t)
  '(python-shell-exec-path nil)

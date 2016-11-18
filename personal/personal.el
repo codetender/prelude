@@ -1,7 +1,7 @@
 (load-theme 'solarized-dark t)
 
-(setq url-proxy-services '(("http" . "127.0.0.1:13333")
-                           ("https" . "127.0.0.1:13333")))
+;; (setq url-proxy-services '(("http" . "127.0.0.1:13333")
+;;                            ("https" . "127.0.0.1:13333")))
 
 (defadvice ansi-term (after advise-ansi-term-coding-system)
   (set-buffer-process-coding-system 'utf-8-unix 'utf-8-unix))
