@@ -3,6 +3,16 @@
 ;; (setq url-proxy-services '(("http" . "127.0.0.1:13333")
 ;;                            ("https" . "127.0.0.1:13333")))
 
+(defun toggle-proxy ()
+  (interactive)
+  (if (eq url-proxy-services '())
+      (progn
+        (setq url-proxy-services '(("http" . "127.0.0.1:13333")
+                                   ("https" . "127.0.0.1:13333")))
+        (message "proxy set"))
+    (progn (setq url-proxy-services '())) (message "proxy unset")))
+
+(message url-proxy-services)
 (defadvice ansi-term (after advise-ansi-term-coding-system)
   (set-buffer-process-coding-system 'utf-8-unix 'utf-8-unix))
 (ad-activate 'ansi-term)
@@ -64,6 +74,7 @@
 (global-set-key (kbd "s-;") 'iy-go-to-or-up-to-continue)
 (global-set-key (kbd "s-,") 'iy-go-to-or-up-to-continue-backward)
 
+(setq prelude-whitespace nil)
 
 (setq yas-snippet-dirs
       '("~/.emacs.d/yasnippet-snippets"                 ;; personal snippets
