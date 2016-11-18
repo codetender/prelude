@@ -7,9 +7,10 @@
  '(column-number-mode t)
  '(cursor-type (quote bar))
  '(magit-use-overlays nil)
- '(org-indent-indentation-per-level 4)
- '(org-n-level-faces 2)
- '(org-src-fontify-natively t)
+ '(org-level-color-stars-only t)
+ '(package-selected-packages
+   (quote
+    (markdown-mode+ markdown-mode sml-mode rust-mode yaml-mode zop-to-char zenburn-theme yasnippet volatile-highlights vkill undo-tree tuareg solarized-theme smex smartrep smartparens rainbow-mode rainbow-delimiters ov operate-on-number multiple-cursors move-text magit json-mode js2-mode iy-go-to-char ido-ubiquitous helm-projectile guru-mode grizzl golden-ratio god-mode gitignore-mode gitconfig-mode git-timemachine git-rebase-mode git-commit-mode gist geiser flycheck flx-ido expand-region exec-path-from-shell erlang elisp-slime-nav easy-kill discover-my-major diminish diff-hl color-theme-solarized browse-kill-ring anzu alchemist ace-window)))
  '(projectile-global-mode t)
  '(projectile-use-git-grep t)
  '(python-shell-exec-path nil)
@@ -23,18 +24,4 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :background "#002b36" :foreground "#839496" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 150 :width normal :foundry "nil" :family "Source Code Pro"))))
- '(mode-line-inactive ((t (:background "#201020" :foreground "#586e75" :box (:line-width 1 :color "#002b36" :style unspecified) :overline "#073642" :underline "#284b54"))))
- '(org-block ((t (:foreground "#586e75"))))
- '(org-block-background ((t (:inherit fixed-pitch))))
- '(org-default ((t (:inherit default :height 1.1 :family "PingFang SC"))))
- '(org-indent ((t (:inherit fixed-pitch))) t)
- '(org-level-1 ((t (:inherit variable-pitch :foreground "#109BC6" :height 1.3 :family "PingFang SC"))))
- '(org-level-2 ((t (:inherit variable-pitch :foreground "#109BC6" :height 1.3 :family "PingFang SC"))))
- '(org-level-3 ((t (:inherit variable-pitch :foreground "dim gray" :height 1.3 :family "PingFang SC"))))
- '(org-level-4 ((t (:inherit variable-pitch :foreground "dim grey" :height 1.3 :family "PingFang SC"))))
- '(org-level-5 ((t (:inherit variable-pitch :foreground "dim grey" :height 1.3))))
- '(org-level-6 ((t (:inherit variable-pitch :foreground "dim grey" :height 1.3))))
- '(org-level-7 ((t (:inherit variable-pitch :foreground "dim grey" :height 1.3))))
- '(org-level-8 ((t (:inherit variable-pitch :foreground "dim grey" :height 1.3 :family "PingFang SC"))))
- '(org-table ((t (:foreground "#859900" :family "Source Code Pro"))))
- '(variable-pitch ((t (:height 160 :family "PingFang SC")))))
+ '(mode-line-inactive ((t (:background "#201020" :foreground "#586e75" :box (:line-width 1 :color "#002b36" :style unspecified) :overline "#073642" :underline "#284b54")))))

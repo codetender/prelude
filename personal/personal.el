@@ -29,8 +29,7 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 (defun hook-org-mode ()
-  (interactive)
-  (variable-pitch-mode t))
+  (interactive))
 
 (defun hook-elixir-mode ()
   (alchemist-mode))
@@ -89,3 +88,7 @@
 (global-set-key (kbd "s-]") 'jump-to-file-and-line)
 
 (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
+(add-hook 'term-mode-hook (lambda()
+                            (yas-minor-mode -1)))
+(add-hook 'shell-mode-hook (lambda()
+                            (yas-minor-mode -1)))
