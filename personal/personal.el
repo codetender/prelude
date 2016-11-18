@@ -14,7 +14,7 @@
 (setq magit-auto-revert-mode nil)
 (setq magit-last-seen-setup-instructions "1.4.0")
 
-(prelude-require-packages '(smex multiple-cursors flx-ido iy-go-to-char yasnippet elixir-mode alchemist))
+(prelude-require-packages '(smex multiple-cursors flx-ido iy-go-to-char yasnippet elixir-mode alchemist rust-mode cargo))
 
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
