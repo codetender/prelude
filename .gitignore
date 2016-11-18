@@ -22,3 +22,5 @@ session*
 tramp
 /var/pcache
 smex-items
+.emacs.desktop
+.emacs.desktop.lock
