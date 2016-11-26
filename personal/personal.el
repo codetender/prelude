@@ -17,6 +17,25 @@
   (set-buffer-process-coding-system 'utf-8-unix 'utf-8-unix))
 (ad-activate 'ansi-term)
 
+(setq redisplay-dont-pause t)
+(set-language-environment 'utf-8)
+
+(dolist (charset '(kana han symbol cjk-misc bopomofo))
+  (set-fontset-font (frame-parameter nil 'font)
+                    charset (font-spec :family "Noto Sans CJK SC"
+                                       :size 14)))
+
+(add-hook 'gfm-mode-hook
+          '(lambda ()
+             (setq visual-line-fringe-indicators t)
+             (visual-line-mode)
+             (if visual-line-mode
+                 (setq word-wrap nil))))
+;; (setq ido-use-virtual-buffers t)
+(setq-default indent-tabs-mode nil)
+
+
+
 (setq mac-command-modifier 'meta)
 (setq mac-option-modifier 'super)
 
@@ -24,10 +43,13 @@
 (setq magit-auto-revert-mode nil)
 (setq magit-last-seen-setup-instructions "1.4.0")
 
-(prelude-require-packages '(smex multiple-cursors flx-ido iy-go-to-char yasnippet elixir-mode alchemist rust-mode cargo))
+(prelude-require-packages '(smex multiple-cursors
+                                 ;; flx-ido
+                                 iy-go-to-char
+                                 yasnippet elixir-mode alchemist rust-mode cargo))
 
-(global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+;; (global-set-key (kbd "M-x") 'smex)
+;; (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 
 (global-set-key (kbd "C-s-h")  'windmove-left)
 (global-set-key (kbd "C-s-l")  'windmove-right)
@@ -59,13 +81,14 @@
 
 (server-start)
 
-(require 'flx-ido)
-(ido-mode 1)
-(ido-everywhere 1)
-(flx-ido-mode 1)
-;; disable ido faces to see flx highlights.
-(setq ido-enable-flex-matching t)
-(setq ido-use-faces nil)
+;; (require 'flx-ido)
+
+;; (ido-mode 1)
+;; (ido-everywhere 1)
+;; (flx-ido-mode 1)
+
+;; (setq ido-enable-flex-matching t) ;; disable ido faces to see flx highlights.
+;; (setq ido-use-faces nil)
 
 (require 'iy-go-to-char)
 (add-to-list 'mc/cursor-specific-vars 'iy-go-to-char-start-pos)
@@ -84,6 +107,8 @@
 (yas-global-mode 1)
 
 (require 'projectile)
+(require 'helm-projectile)
+(helm-projectile-on)
 
 (defun jump-to-file-and-line ()
   (interactive)
@@ -103,3 +128,14 @@
                             (yas-minor-mode -1)))
 (add-hook 'shell-mode-hook (lambda()
                             (yas-minor-mode -1)))
+
+(helm-mode 1)
+(global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "C-x b") 'helm-mini)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
+(global-set-key (kbd "M-y")     'helm-show-kill-ring)
+
+(with-eval-after-load 'writeroom-mode
+  (define-key writeroom-mode-map (kbd "C-M-<") #'writeroom-decrease-width)
+  (define-key writeroom-mode-map (kbd "C-M->") #'writeroom-increase-width)
+  (define-key writeroom-mode-map (kbd "C-M-=") #'writeroom-adjust-width))
